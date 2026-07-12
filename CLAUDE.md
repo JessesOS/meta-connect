@@ -6,6 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Meta Connect** is a Claude agent orchestration system that integrates with Meta Business Suite and Meta Ads Manager (Facebook/Instagram). The goal is to automate and orchestrate tasks across Meta's APIs using Claude as the AI backbone.
 
+## Related Project
+
+There's a separate, complementary Meta integration inside **AgencyOS**
+(`~/Master/AI/agencyos/integrations/meta`, docs at `docs/meta-readonly-architecture.md`) — it's
+**read-only** (Meta → AgencyOS, feeds the CEO Briefing / Client Risk Agent with campaign
+performance data). **Meta Connect is write-capable** (Claude → Meta, creates/pauses/updates
+campaigns via conversation). Not duplicates — different directions, different risk profiles.
+AgencyOS already has a working `test-meta-connection.js` script and established env var naming
+(`META_ACCESS_TOKEN`, `META_AD_ACCOUNT_ID`) — reuse the same credentials across both once real
+Meta Developer app credentials exist, rather than provisioning twice.
+
 ## Key Integrations
 
 - **Meta Graph API** — core API for Business Suite, Pages, Ad Manager, and Insights
